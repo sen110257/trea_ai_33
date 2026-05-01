@@ -18,44 +18,82 @@
         </span>
       </div>
 
+      <div class="divider-light" style="margin: 0 -16px 24px;"></div>
+
       <div class="detail-section">
-        <h3 class="detail-section-title">💫 功效与作用</h3>
-        <p class="detail-text">{{ ingredient.effects }}</p>
+        <div class="detail-section-header">
+          <span class="detail-section-icon">💫</span>
+          <h3 class="detail-section-title">功效与作用</h3>
+          <div class="detail-section-line"></div>
+        </div>
+        <div class="detail-text-block">
+          <p class="detail-text">{{ ingredient.effects }}</p>
+        </div>
       </div>
 
       <div class="detail-section">
-        <h3 class="detail-section-title">⚠️ 食用禁忌</h3>
-        <p class="detail-text" style="white-space: pre-line;">{{ ingredient.taboos }}</p>
+        <div class="detail-section-header">
+          <span class="detail-section-icon">⚠️</span>
+          <h3 class="detail-section-title">食用禁忌</h3>
+          <div class="detail-section-line"></div>
+        </div>
+        <div class="detail-text-block">
+          <p class="detail-text" style="white-space: pre-line;">{{ ingredient.taboos }}</p>
+        </div>
       </div>
 
       <div class="detail-section">
-        <h3 class="detail-section-title">🥣 搭配建议</h3>
-        <p class="detail-text" style="white-space: pre-line;">{{ ingredient.suggestions }}</p>
+        <div class="detail-section-header">
+          <span class="detail-section-icon">🥣</span>
+          <h3 class="detail-section-title">搭配建议</h3>
+          <div class="detail-section-line"></div>
+        </div>
+        <div class="detail-text-block">
+          <p class="detail-text" style="white-space: pre-line;">{{ ingredient.suggestions }}</p>
+        </div>
       </div>
 
       <div class="detail-section">
-        <h3 class="detail-section-title">📋 食用须知</h3>
-        <p class="detail-text" style="white-space: pre-line;">{{ ingredient.notices }}</p>
+        <div class="detail-section-header">
+          <span class="detail-section-icon">📋</span>
+          <h3 class="detail-section-title">食用须知</h3>
+          <div class="detail-section-line"></div>
+        </div>
+        <div class="detail-text-block">
+          <p class="detail-text" style="white-space: pre-line;">{{ ingredient.notices }}</p>
+        </div>
       </div>
 
       <div class="detail-section" v-if="ingredient.compatible.length > 0">
-        <h3 class="detail-section-title">✅ 相宜食材</h3>
-        <div v-for="item in ingredient.compatible" :key="item.name" class="compatible-item">
-          <span class="compatible-icon compatible-good">✅</span>
-          <div class="compatible-content">
-            <h4 class="compatible-name">{{ item.name }}</h4>
-            <p class="compatible-desc">{{ item.desc }}</p>
+        <div class="detail-section-header">
+          <span class="detail-section-icon">✅</span>
+          <h3 class="detail-section-title">相宜食材</h3>
+          <div class="detail-section-line"></div>
+        </div>
+        <div class="compatible-section">
+          <div v-for="item in ingredient.compatible" :key="item.name" class="compatible-item">
+            <div class="compatible-icon good compatible-good">✅</div>
+            <div class="compatible-content">
+              <h4 class="compatible-name">{{ item.name }}</h4>
+              <p class="compatible-desc">{{ item.desc }}</p>
+            </div>
           </div>
         </div>
       </div>
 
       <div class="detail-section" v-if="ingredient.incompatible.length > 0">
-        <h3 class="detail-section-title">❌ 相克食材</h3>
-        <div v-for="item in ingredient.incompatible" :key="item.name" class="compatible-item">
-          <span class="compatible-icon compatible-bad">❌</span>
-          <div class="compatible-content">
-            <h4 class="compatible-name">{{ item.name }}</h4>
-            <p class="compatible-desc">{{ item.desc }}</p>
+        <div class="detail-section-header">
+          <span class="detail-section-icon">❌</span>
+          <h3 class="detail-section-title">相克食材</h3>
+          <div class="detail-section-line"></div>
+        </div>
+        <div class="compatible-section">
+          <div v-for="item in ingredient.incompatible" :key="item.name" class="compatible-item">
+            <div class="compatible-icon bad compatible-bad">❌</div>
+            <div class="compatible-content">
+              <h4 class="compatible-name">{{ item.name }}</h4>
+              <p class="compatible-desc">{{ item.desc }}</p>
+            </div>
           </div>
         </div>
       </div>
@@ -115,7 +153,7 @@ const toggleFavorite = () => {
 }
 
 const handleImageError = (e) => {
-  e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23F5F5F0" width="100" height="100"/><text x="50" y="60" font-size="40" text-anchor="middle">🥗</text></svg>'
+  e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect fill="%23F8FAF5" width="100" height="100"/><text x="50" y="60" font-size="40" text-anchor="middle">🥗</text></svg>'
 }
 </script>
 

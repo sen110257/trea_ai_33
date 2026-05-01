@@ -37,22 +37,26 @@
           class="card"
           @click="goDetail(item)"
         >
-          <img :src="item.image" :alt="item.name" class="card-image" @error="handleImageError($event)">
-          <div class="card-content">
+          <div class="recipe-card-header">
+            <img :src="item.image" :alt="item.name" class="card-image" @error="handleImageError($event)">
+          </div>
+          <div class="card-content" style="padding-bottom: 12px;">
             <h4 class="card-title">{{ item.name }}</h4>
-            <p class="card-desc">{{ item.description }}</p>
-            <div class="recipe-card-meta" style="margin-top: 8px;">
-              <span class="recipe-meta-item">
-                <span class="recipe-meta-icon">⏱️</span>
-                {{ item.time }}
-              </span>
-              <span class="recipe-meta-item">
-                <span class="recipe-meta-icon">📊</span>
-                {{ item.difficulty }}
-              </span>
-              <span class="recipe-meta-item">
-                <span class="recipe-meta-icon">👍</span>
-                {{ item.likes }}
+            <p class="card-desc" style="margin-bottom: 8px;">{{ item.description }}</p>
+            <div class="recipe-card-footer">
+              <div class="recipe-card-meta-left">
+                <span class="recipe-card-meta-item">
+                  <span class="recipe-card-meta-icon">⏱️</span>
+                  <span>{{ item.time }}</span>
+                </span>
+                <span class="recipe-card-meta-item">
+                  <span class="recipe-card-meta-icon">📊</span>
+                  <span>{{ item.difficulty }}</span>
+                </span>
+              </div>
+              <span class="recipe-card-likes">
+                <span class="recipe-card-likes-icon">👍</span>
+                <span>{{ item.likes }}</span>
               </span>
             </div>
           </div>
