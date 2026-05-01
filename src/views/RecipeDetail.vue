@@ -21,39 +21,72 @@
         </span>
       </div>
 
-      <div class="detail-section">
-        <h3 class="detail-section-title">📝 菜品简介</h3>
-        <p class="detail-text">{{ recipe.description }}</p>
-      </div>
+      <div class="divider-light" style="margin: 0 -16px 24px;"></div>
 
       <div class="detail-section">
-        <h3 class="detail-section-title">👥 适合人群</h3>
-        <p class="detail-text">{{ recipe.suitableFor }}</p>
-      </div>
-
-      <div class="detail-section">
-        <h3 class="detail-section-title">🛒 食材准备</h3>
-        <div v-for="item in recipe.ingredients" :key="item.name" class="ingredient-item">
-          <span class="ingredient-name">{{ item.name }}</span>
-          <span class="ingredient-amount">{{ item.amount }}</span>
+        <div class="detail-section-header">
+          <span class="detail-section-icon">📝</span>
+          <h3 class="detail-section-title">菜品简介</h3>
+          <div class="detail-section-line"></div>
+        </div>
+        <div class="detail-text-block">
+          <p class="detail-text">{{ recipe.description }}</p>
         </div>
       </div>
 
       <div class="detail-section">
-        <h3 class="detail-section-title">👨‍🍳 制作步骤</h3>
-        <div v-for="step in recipe.steps" :key="step.order" class="step-item">
-          <div class="step-number">{{ step.order }}</div>
-          <div class="step-content">
-            <img v-if="step.image" :src="step.image" class="step-image" @error="handleImageError($event)">
-            <p class="step-text">{{ step.text }}</p>
+        <div class="detail-section-header">
+          <span class="detail-section-icon">👥</span>
+          <h3 class="detail-section-title">适合人群</h3>
+          <div class="detail-section-line"></div>
+        </div>
+        <div class="detail-text-block">
+          <p class="detail-text">{{ recipe.suitableFor }}</p>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div class="detail-section-header">
+          <span class="detail-section-icon">🛒</span>
+          <h3 class="detail-section-title">食材准备</h3>
+          <div class="detail-section-line"></div>
+        </div>
+        <div class="ingredients-section">
+          <div v-for="item in recipe.ingredients" :key="item.name" class="ingredient-item">
+            <span class="ingredient-name">{{ item.name }}</span>
+            <span class="ingredient-amount">{{ item.amount }}</span>
           </div>
         </div>
       </div>
 
       <div class="detail-section">
-        <h3 class="detail-section-title">💡 烹饪小贴士</h3>
+        <div class="detail-section-header">
+          <span class="detail-section-icon">👨‍🍳</span>
+          <h3 class="detail-section-title">制作步骤</h3>
+          <div class="detail-section-line"></div>
+        </div>
+        <div class="step-section">
+          <div v-for="step in recipe.steps" :key="step.order" class="step-item">
+            <div class="step-number">{{ step.order }}</div>
+            <div class="step-content">
+              <img v-if="step.image" :src="step.image" class="step-image" @error="handleImageError($event)">
+              <p class="step-text">{{ step.text }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div class="detail-section-header">
+          <span class="detail-section-icon">💡</span>
+          <h3 class="detail-section-title">烹饪小贴士</h3>
+          <div class="detail-section-line"></div>
+        </div>
         <div class="tip-box">
-          <h4 class="tip-title">小贴士</h4>
+          <h4 class="tip-title">
+            <span>💡</span>
+            <span>小贴士</span>
+          </h4>
           <p class="tip-content" style="white-space: pre-line;">{{ recipe.tips }}</p>
         </div>
       </div>
